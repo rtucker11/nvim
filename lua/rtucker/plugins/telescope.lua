@@ -8,6 +8,28 @@ return {
 		"folke/todo-comments.nvim",
 	},
 	config = function()
+		-- funcstart
+		local actions = require("telescope.actions")
+		local action_state = require("telescope.actions.state")
+
+		local function smart_select(prompt_bufnr)
+			local selection = action_state.get_selected_entry()
+			actions.close(prompt_bufnr)
+			if not selection then
+				return
+			end
+
+			local current_buf = vim.api.nvim_get_current_buf()
+			local buf_name = vim.api.nvim_buf_get_name(current_buf)
+			-- If current buffer is unnamed, overwrite it
+			if buf_name == "" then
+				vim.cmd("edit " .. vim.fn.fnameescape(selection.value))
+			else
+				vim.cmd("tabedit " .. vim.fn.fnameescape(selection.value))
+			end
+		end
+
+		-- funcend
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
 		local transform_mod = require("telescope.actions.mt").transform_mod
@@ -29,11 +51,15 @@ return {
 				},
 				path_display = { "smart" },
 				mappings = {
+					n = {
+						["<CR>"] = smart_select,
+					},
 					i = {
+						["<CR>"] = smart_select,
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
 						["<C-j>"] = actions.move_selection_next, -- move to next result
 						["<C-q>"] = actions.send_selected_to_qflist + custom_actions.open_trouble_qflist,
-						["<C-t>"] = trouble_telescope.open,
+						--						["<C-t>"] = trouble_telescope.open,
 					},
 				},
 			},
