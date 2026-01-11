@@ -5,8 +5,9 @@ return {
 			-- list of servers for mason to install
 			automatic_enable = {
 				exclude = {
+					-- "black",
 					"pyright",
-					"black",
+					"ruff",
 				},
 			},
 			ensure_installed = {
@@ -19,7 +20,10 @@ return {
 				"graphql",
 				"emmet_ls",
 				"prismals",
-				"pyright",
+				--				"pyright",
+				--				"ruff",
+				"pylsp",
+				--				"pyright",
 				"eslint",
 			},
 		},
