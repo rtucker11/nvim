@@ -14,7 +14,7 @@ end
 -- callback = open_nvim_tree_at_startup,
 -- })
 
-vim.opt.mouse = "a"
+vim.opt.mouse = ""
 require("rtucker.core")
 require("rtucker.lazy")
 require("rtucker.lsp")
