@@ -10,6 +10,7 @@ keymap.set("n", "<Esc>E]", "<cmd>Telescope find_files<cr>", { desc = "Launch Tel
 keymap.set("n", "<C-h>", ":tabprevious<CR>", { desc = "Previous Tab" })
 keymap.set("n", "<C-l>", ":tabnext<CR>", { desc = "Previous Tab" })
 keymap.set("n", "<leader>ws", ":VimwikiSearch /", { desc = "Search Wiki" })
+keymap.set("n", "<leader>ww", ":VimwikiIndex", { desc = "Launch Index" })
 -- keymap.set("n", "<C-l>", "<cmd>tabn<CR>", { desc = "Previous Tab" })
 -- keymap.set("n", "<C-l>", "<cmd>tabn<CR>", { desc = "Next Tab" })
 

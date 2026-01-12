@@ -18,3 +18,6 @@ vim.opt.mouse = ""
 require("rtucker.core")
 require("rtucker.lazy")
 require("rtucker.lsp")
+vim.api.nvim_set_keymap("i", "<C-Enter>", 'copilot#Accept("<CR>")', { silent = true, expr = true, noremap = true })
+vim.g.vimwiki_table_mappings = 0
+
